@@ -1,0 +1,342 @@
+
+ [
+  {
+    "userId": 101,
+    "name": "Aarav Sharma",
+    "email": "aarav.sharma@example.com",
+    "sessionStart": "2025-10-27 9:30",
+    "pagesVisited": 9,
+    "purchaseCount": 1,
+    "timeOnPage": 130,
+    "device":"Desktop",
+    "country":"India",
+    "events": [
+      { "event": "Page Visit", "page": "Home", "time": "09:30", "duration": 10 },
+      { "event": "Page Visit", "page": "Search", "time": "09:40", "duration": 20 },
+      { "event": "Add to Cart", "page": "Product 101", "time": "09:55", "duration": 5 },
+      { "event": "Purchase", "page": "Checkout", "time": "10:00", "duration": 15 }
+    ]
+  },
+  {
+    "userId": 102,
+    "name": "Santoshi Illur",
+    "email": "santoshi.dev@example.com",
+    "sessionStart": "2025-18-27 10:15",
+    "pagesVisited": 12,
+    "purchaseCount": 2,
+    "timeOnPage": 160,
+    "device":"Desktop",
+    "country":"India",
+    "events": [
+      { "event": "Page Visit", "page": "Home", "time": "10:15", "duration": 8 },
+      { "event": "Search", "page": "Electronics", "time": "10:25", "duration": 25 },
+      { "event": "Page Visit", "page": "Product 230", "time": "10:40", "duration": 12 },
+      { "event": "Add to Cart", "page": "Product 230", "time": "10:52", "duration": 6 },
+      { "event": "Purchase", "page": "Checkout", "time": "11:00", "duration": 20 }
+    ]
+  },
+  {
+    "userId": 103,
+    "name": "Riya Verma",
+    "email": "riya.verma@example.com",
+    "sessionStart": "2025-11-5 11:05",
+    "pagesVisited": 7,
+    "purchaseCount": 0,
+    "timeOnPage": 95,
+    "device":"Desktop",
+    "country":"India",
+    "events": [
+      { "event": "Page Visit", "page": "Home", "time": "11:05", "duration": 7 },
+      { "event": "Page Visit", "page": "Offers", "time": "11:15", "duration": 15 },
+      { "event": "Search", "page": "Fashion", "time": "11:25", "duration": 18 },
+      { "event": "Page Visit", "page": "Product 320", "time": "11:40", "duration": 10 }
+    ]
+  },
+  {
+    "userId": 104,
+    "name": "Manoj Kumar",
+    "email": "manoj.kumar@example.com",
+    "sessionStart": "2025-9-11 12:12",
+    "pagesVisited": 15,
+    "purchaseCount": 3,
+    "timeOnPage": 210,
+    "device":"Desktop",
+    "country":"India",
+    "events": [
+      { "event": "Page Visit", "page": "Home", "time": "12:12", "duration": 5 },
+      { "event": "Search", "page": "Groceries", "time": "12:18", "duration": 22 },
+      { "event": "Add to Cart", "page": "Apple Pack", "time": "12:40", "duration": 4 },
+      { "event": "Purchase", "page": "Checkout", "time": "12:50", "duration": 17 },
+      { "event": "Page Visit", "page": "Recommended", "time": "13:05", "duration": 10 },
+      { "event": "Purchase", "page": "Checkout", "time": "13:20", "duration": 12 }
+    ]
+  },
+  {
+    "userId": 105,
+    "name": "Neha Patil",
+    "email": "neha.patil@example.com",
+    "sessionStart": "2025-4-12 14:20",
+    "pagesVisited": 11,
+    "purchaseCount": 1,
+    "timeOnPage": 140,
+    "device":"Desktop",
+    "country":"India",
+    "events": [
+      { "event": "Page Visit", "page": "Home", "time": "14:20", "duration": 9 },
+      { "event": "Search", "page": "Beauty Products", "time": "14:32", "duration": 19 },
+      { "event": "Page Visit", "page": "Product 450", "time": "14:50", "duration": 14 },
+      { "event": "Add to Cart", "page": "Product 450", "time": "15:05", "duration": 5 },
+      { "event": "Purchase", "page": "Checkout", "time": "15:15", "duration": 21 }
+    ]
+  },
+  {
+    "userId": 106,
+    "name": "Karan Mehta",
+    "email": "karan.mehta@example.com",
+    "sessionStart": "2025-11-27 15:10",
+    "pagesVisited": 13,
+    "purchaseCount": 0,
+    "timeOnPage": 110,
+    "device":"Tablet",
+    "country":"UK",
+    "events": [
+      { "event": "Page Visit", "page": "Home", "time": "15:10", "duration": 6 },
+      { "event": "Search", "page": "Mobile Phones", "time": "15:18", "duration": 20 },
+      { "event": "Page Visit", "page": "Product 980", "time": "15:40", "duration": 12 },
+      { "event": "Page Visit", "page": "Reviews", "time": "15:55", "duration": 10 }
+    ]
+  },
+  {
+    "userId": 107,
+    "name": "Pooja Singh",
+    "email": "pooja.singh@example.com",
+    "sessionStart": "2025-11-27 16:25",
+    "pagesVisited": 8,
+    "purchaseCount": 2,
+    "timeOnPage": 150,
+     "device":"Tablet",
+    "country":"UK",
+    "events": [
+      { "event": "Page Visit", "page": "Home", "time": "16:25", "duration": 8 },
+      { "event": "Search", "page": "Kitchen Items", "time": "16:35", "duration": 22 },
+      { "event": "Add to Cart", "page": "Cookware Set", "time": "16:58", "duration": 6 },
+      { "event": "Purchase", "page": "Checkout", "time": "17:05", "duration": 18 }
+    ]
+  },
+  {
+    "userId": 108,
+    "name": "Rahul Desai",
+    "email": "rahul.desai@example.com",
+    "sessionStart": "2025-11-27 17:40",
+    "pagesVisited": 10,
+    "purchaseCount": 1,
+    "timeOnPage": 120,
+     "device":"Tablet",
+    "country":"UK",
+    "events": [
+      { "event": "Page Visit", "page": "Home", "time": "17:40", "duration": 7 },
+      { "event": "Search", "page": "Shoes", "time": "17:50", "duration": 21 },
+      { "event": "Page Visit", "page": "Product 750", "time": "18:10", "duration": 9 },
+      { "event": "Purchase", "page": "Checkout", "time": "18:20", "duration": 16 }
+    ]
+  },
+  {
+    "userId": 109,
+    "name": "Ishita Rao",
+    "email": "ishita.rao@example.com",
+    "sessionStart": "2025-11-27 18:55",
+    "pagesVisited": 6,
+    "purchaseCount": 0,
+    "timeOnPage": 80,
+     "device":"Tablet",
+    "country":"India",
+    "events": [
+      { "event": "Page Visit", "page": "Home", "time": "18:55", "duration": 6 },
+      { "event": "Search", "page": "Sportswear", "time": "19:05", "duration": 18 },
+      { "event": "Page Visit", "page": "Product 1100", "time": "19:20", "duration": 9 }
+    ]
+  },
+  {
+    "userId": 110,
+    "name": "Akash Gupta",
+    "email": "akash.gupta@example.com",
+    "sessionStart": "2025-11-27 20:10",
+    "pagesVisited": 14,
+    "purchaseCount": 2,
+    "timeOnPage": 175,
+     "device":"Tablet",
+    "country":"India",
+    "events": [
+      { "event": "Page Visit", "page": "Home", "time": "20:10", "duration": 9 },
+      { "event": "Search", "page": "Laptops", "time": "20:20", "duration": 25 },
+      { "event": "Add to Cart", "page": "Laptop Model A1", "time": "20:45", "duration": 7 },
+      { "event": "Purchase", "page": "Checkout", "time": "20:55", "duration": 20 }
+    ]
+  },
+  {
+    "userId": 111,
+    "name": "Divya Shetty",
+    "email": "divya.shetty@example.com",
+    "sessionStart": "2025-11-27 21:30",
+    "pagesVisited": 9,
+    "purchaseCount": 1,
+    "timeOnPage": 125,
+     "device":"Tablet",
+    "country":"India",
+    "events": [
+      { "event": "Page Visit", "page": "Home", "time": "21:30", "duration": 7 },
+      { "event": "Search", "page": "Books", "time": "21:40", "duration": 18 },
+      { "event": "Add to Cart", "page": "Book: Java Mastery", "time": "21:58", "duration": 5 },
+      { "event": "Purchase", "page": "Checkout", "time": "22:05", "duration": 16 }
+    ]
+  },
+  {
+    "userId": 112,
+    "name": "Harish Rao",
+    "email": "harish.rao@example.com",
+    "sessionStart": "2025-11-27 22:15",
+    "pagesVisited": 10,
+    "purchaseCount": 0,
+    "timeOnPage": 105,
+     "device":"Tablet",
+    "country":"India",
+    "events": [
+      { "event": "Page Visit", "page": "Home", "time": "22:15", "duration": 6 },
+      { "event": "Search", "page": "Furniture", "time": "22:25", "duration": 23 },
+      { "event": "Page Visit", "page": "Product 2200", "time": "22:48", "duration": 12 }
+    ]
+  },
+  {
+    "userId": 113,
+    "name": "Sneha Chavan",
+    "email": "sneha.chavan@example.com",
+    "sessionStart": "2025-11-27 08:25",
+    "pagesVisited": 8,
+    "purchaseCount": 2,
+    "timeOnPage": 145,
+     "device":"Mobile",
+    "country":"India",
+    "events": [
+      { "event": "Page Visit", "page": "Home", "time": "08:25", "duration": 8 },
+      { "event": "Search", "page": "Home Decor", "time": "08:35", "duration": 22 },
+      { "event": "Add to Cart", "page": "Wall Art", "time": "08:58", "duration": 6 },
+      { "event": "Purchase", "page": "Checkout", "time": "09:05", "duration": 19 }
+    ]
+  },
+  {
+    "userId": 114,
+    "name": "Kavya Prasad",
+    "email": "kavya.prasad@example.com",
+    "sessionStart": "2025-11-27 09:40",
+    "pagesVisited": 12,
+    "purchaseCount": 1,
+    "timeOnPage": 150,
+      "device":"Mobile",
+    "country":"Germany",
+    "events": [
+      { "event": "Page Visit", "page": "Home", "time": "09:40", "duration": 7 },
+      { "event": "Search", "page": "Toys", "time": "09:50", "duration": 18 },
+      { "event": "Add to Cart", "page": "Toy Car", "time": "10:05", "duration": 5 },
+      { "event": "Purchase", "page": "Checkout", "time": "10:15", "duration": 17 }
+    ]
+  },
+  {
+    "userId": 115,
+    "name": "Sameer Nair",
+    "email": "sameer.nair@example.com",
+    "sessionStart": "2025-11-25 10:55",
+    "pagesVisited": 11,
+    "purchaseCount": 0,
+    "timeOnPage": 100,
+      "device":"Mobile",
+    "country":"Germany",
+    "events": [
+      { "event": "Page Visit", "page": "Home", "time": "10:55", "duration": 6 },
+      { "event": "Search", "page": "Watches", "time": "11:05", "duration": 21 },
+      { "event": "Page Visit", "page": "Product 1800", "time": "11:28", "duration": 12 }
+    ]
+  },
+  {
+    "userId": 116,
+    "name": "Tanvi Kulkarni",
+    "email": "tanvi.kulkarni@example.com",
+    "sessionStart": "2025-11-24 12:12",
+    "pagesVisited": 7,
+    "purchaseCount": 1,
+    "timeOnPage": 115,
+      "device":"Mobile",
+    "country":"Germany",
+    "events": [
+      { "event": "Page Visit", "page": "Home", "time": "12:12", "duration": 7 },
+      { "event": "Search", "page": "Jewelry", "time": "12:22", "duration": 20 },
+      { "event": "Purchase", "page": "Checkout", "time": "12:45", "duration": 15 }
+    ]
+  },
+  {
+    "userId": 117,
+    "name": "Vikram Rao",
+    "email": "vikram.rao@example.com",
+    "sessionStart": "2025-11-23 13:30",
+    "pagesVisited": 10,
+    "purchaseCount": 2,
+    "timeOnPage": 160,
+      "device":"Desktop",
+    "country":"Germany",
+    "events": [
+      { "event": "Page Visit", "page": "Home", "time": "13:30", "duration": 9 },
+      { "event": "Search", "page": "Gaming", "time": "13:40", "duration": 24 },
+      { "event": "Add to Cart", "page": "Gaming Mouse", "time": "14:05", "duration": 6 },
+      { "event": "Purchase", "page": "Checkout", "time": "14:15", "duration": 19 }
+    ]
+  },
+  {
+    "userId": 118,
+    "name": "Shruti Menon",
+    "email": "shruti.menon@example.com",
+    "sessionStart": "2025-11-22 14:50",
+    "pagesVisited": 8,
+    "purchaseCount": 1,
+    "timeOnPage": 125,
+      "device":"Mobile",
+    "country":"Germany",
+    "events": [
+      { "event": "Page Visit", "page": "Home", "time": "14:50", "duration": 8 },
+      { "event": "Search", "page": "Makeup", "time": "15:00", "duration": 20 },
+      { "event": "Add to Cart", "page": "Lipstick Shade 22", "time": "15:22", "duration": 5 },
+      { "event": "Purchase", "page": "Checkout", "time": "15:30", "duration": 17 }
+    ]
+  },
+  {
+    "userId": 119,
+    "name": "Rohit Pawar",
+    "email": "rohit.pawar@example.com",
+    "sessionStart": "2025-11-21 16:10",
+    "pagesVisited": 9,
+    "purchaseCount": 0,
+    "timeOnPage": 90,
+      "device":"Mobile",
+    "country":"UK",
+    "events": [
+      { "event": "Page Visit", "page": "Home", "time": "16:10", "duration": 7 },
+      { "event": "Search", "page": "Fitness", "time": "16:20", "duration": 22 },
+      { "event": "Page Visit", "page": "Product 5000", "time": "16:42", "duration": 9 }
+    ]
+  },
+  {
+    "userId": 120,
+    "name": "Swati Joshi",
+    "email": "swati.joshi@example.com",
+    "sessionStart": "2025-11-20 17:30",
+    "pagesVisited": 10,
+    "purchaseCount": 1,
+    "timeOnPage": 135,
+     "device":"Mobile",
+    "country":"UK",
+    "events": [
+      { "event": "Page Visit", "page": "Home", "time": "17:30", "duration": 9 },
+      { "event": "Search", "page": "Accessories", "time": "17:40", "duration": 18 },
+      { "event": "Add to Cart", "page": "Sunglasses A2", "time": "18:00", "duration": 6 },
+      { "event": "Purchase", "page": "Checkout", "time": "18:10", "duration": 20 }
+    ]
+  }
+]
