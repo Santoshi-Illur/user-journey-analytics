@@ -273,16 +273,16 @@ Returns:
 ## Frontend Design
 ### Wireframe
 1. **Login**
-![alt text](./assets/Wireframe/Login.jpg)
+![alt text](./assets/Wireframe/Login.png)
 
 2. **Dashboard**
-![alt text](./assets/Wireframe/Dashboard.jpg)
+![alt text](./assets/Wireframe/Dashboard.png)
 
 3. **User Journey**
-![alt text](./assets/Wireframe/User-journey.jpg)
+![alt text](./assets/Wireframe/User-journey.png)
 
 4. **Funnel Analysis**
-![alt text](./assets/Wireframe/Funnel.jpg)
+![alt text](./assets/Wireframe/Funnel.png)
 
 
 ### Main Views
