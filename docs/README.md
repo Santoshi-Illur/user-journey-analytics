@@ -41,6 +41,8 @@ This project was built as part of a **senior-level system design & implementatio
 
 ## High-Level Architecture
 
+![alt text](./assets/Architecture Diagram/assets/Architecture Diagram/Architecture diagram.drawio.png)
+
 **Frontend**
 - React + TypeScript
 - Material UI
@@ -269,24 +271,37 @@ Returns:
 ---
 
 ## Frontend Design
+### Wireframe
+1. **Login**
+![alt text](./assets/Wireframe/Login.jpg)
+
+2. **Dashboard**
+![alt text](./assets/Wireframe/Dashboard.jpg)
+
+3. **User Journey**
+![alt text](./assets/Wireframe/User-journey.jpg)
+
+4. **Funnel Analysis**
+![alt text](./assets/Wireframe/Funnel.jpg)
+
 
 ### Main Views
 1. **Login**
-![alt text](./assets/page1-login.jpg)
+![alt text](./assets/Screenshots/page1-login.jpg)
 2. **Dashboard**
    - Search, filters, date range
    - KPIs
    - Trend graphs
    - Paginated user table
-![alt text](./assets/page2-dashboard.jpg)
+![alt text](./assets/Screenshots/page2-dashboard.jpg)
 3. **User Journey**
    - Session timelines
    - Event trends
-![alt text](./assets/page3-userJourney.png)
+![alt text](./assets/Screenshots/page3-userJourney.png)
 4. **Funnel Analysis**
    - Conversion funnel
    - Timeline chart
-![alt text](./assets/page4-funnel.jpg)
+![alt text](./assets/Screenshots/page4-funnel.jpg)
 
 ### User Stories
 - As an analyst, I want to see top KPIs quickly
