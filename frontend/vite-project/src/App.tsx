@@ -20,7 +20,6 @@ const App: React.FC = () => {
   return (
     <Routes>
       <Route path="/" element={!isLoggedIn ? <LoginPage onLogin={handleLogin} /> : <Navigate to="/app/dashboard" replace />} />
-
       <Route path="/app" element={isLoggedIn ? <Layout /> : <Navigate to="/" replace />}>
         <Route path="dashboard" element={<DashboardPage />} />
         <Route path="user/:id" element={<UserJourneyPage />} />

@@ -54,7 +54,7 @@ export async function getDashboardData(query: DashboardQuery) {
   if (eventType) eventMatch.eventType = eventType;
 
   // If userIds exist, restrict by them
-  if (userIds.length) eventMatch.userId = { $in: userIds };
+  // if (userIds.length) eventMatch.userId = { $in: userIds };
 
   // KPIs aggregation
   const metricsAgg = await Event.aggregate([

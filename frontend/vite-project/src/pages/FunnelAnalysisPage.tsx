@@ -14,10 +14,10 @@ import {
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import dayjs from "dayjs";
-
+import { FUNNEL_STAGE_KEYS } from "../constants/Funnelstage";
 import DateRangeSelector from "../components/DateRangeSelector";
 import type { DateRange } from "../components/DateRangeSelector";
-
+import { useTranslation } from "react-i18next";
 /* ---------------- Types ---------------- */
 
 interface FunnelStage {
@@ -59,6 +59,7 @@ export default function FunnelAnalysisPage() {
   /* -------- Data -------- */
   const [funnel, setFunnel] = useState<FunnelStage[]>([]);
   const [loading, setLoading] = useState(true);
+const { t } = useTranslation();
 
   /* -------- API Call -------- */
   useEffect(() => {
@@ -100,7 +101,7 @@ export default function FunnelAnalysisPage() {
         mb={3}
       >
         <Typography variant="h4" fontWeight={600}>
-          Funnel Analysis
+          {t("funnelAnalysis")}
         </Typography>
 
         <Button
@@ -108,39 +109,40 @@ export default function FunnelAnalysisPage() {
           color="primary"
           onClick={() => navigate("/app/dashboard")}
         >
-          Back to Dashboard
+          {t("backToDashboard")}
+
         </Button>
       </Stack>
 
       {/* ---------- Filters ---------- */}
       <Stack direction="row" spacing={2} mb={3}>
         <FormControl sx={{ minWidth: 160 }}>
-          <InputLabel>Device</InputLabel>
+          <InputLabel>{t("device")}</InputLabel>
           <Select
             label="Device"
             value={device}
             onChange={(e) => setDevice(e.target.value)}
           >
-            <MenuItem value="">All</MenuItem>
-            <MenuItem value="Mobile">Mobile</MenuItem>
-            <MenuItem value="Desktop">Desktop</MenuItem>
-            <MenuItem value="Tablet">Tablet</MenuItem>
+            <MenuItem value="">{t("all")}</MenuItem>
+            <MenuItem value="Mobile">{t("mobile")}</MenuItem>
+            <MenuItem value="Desktop">{t("desktop")}</MenuItem>
+            <MenuItem value="Tablet">{t("tablet")}</MenuItem>
           </Select>
         </FormControl>
 
         <FormControl sx={{ minWidth: 160 }}>
-          <InputLabel>Country</InputLabel>
+          <InputLabel>{t("country")}</InputLabel>
           <Select
             label="Country"
             value={country}
             onChange={(e) => setCountry(e.target.value)}
           >
-            <MenuItem value="">All</MenuItem>
-            <MenuItem value="India">India</MenuItem>
-            <MenuItem value="USA">USA</MenuItem>
-            <MenuItem value="UK">UK</MenuItem>
-            <MenuItem value="Germany">Germany</MenuItem>
-            <MenuItem value="Canada">Canada</MenuItem>
+            <MenuItem value="">{t("all")}</MenuItem>
+            <MenuItem value="India">{t("india")}</MenuItem>
+            <MenuItem value="USA">{t("usa")}</MenuItem>
+            <MenuItem value="UK">{t("uk")}</MenuItem>
+            <MenuItem value="Germany">{t("germany")}</MenuItem>
+            <MenuItem value="Canada">{t("canada")}</MenuItem>
           </Select>
         </FormControl>
       </Stack>
@@ -153,7 +155,7 @@ export default function FunnelAnalysisPage() {
       <Card>
         <CardContent>
           {loading ? (
-            <Typography>Loading funnel data…</Typography>
+            <Typography>{t("loadingFunnel")}</Typography>
           ) : (
             <Stack spacing={2}>
               {funnel.map((step, index) => {
@@ -171,7 +173,7 @@ export default function FunnelAnalysisPage() {
                       mb={0.5}
                     >
                       <Typography fontWeight={500}>
-                        {index + 1}. {step.stage}
+                         {index + 1}. {t(FUNNEL_STAGE_KEYS[step.eventType] ?? step.stage)}
                       </Typography>
                       <Typography color="text.secondary">
                         {step.count} ({step.conversionPercent}%)

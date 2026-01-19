@@ -16,8 +16,8 @@ import funnelRouter from "./routes/funnel.routes";
 
 const app = express();
 
-app.use(helmet());
-app.use(cors());
+app.use(helmet()); // provides security headers
+app.use(cors()); // provides CORS headers
 app.use(express.json({ limit: "1mb" }));
 
 // Basic rate limit (tune for your infra)

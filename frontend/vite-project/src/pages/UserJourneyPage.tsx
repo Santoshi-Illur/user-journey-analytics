@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import dayjs, { Dayjs } from "dayjs";
-
+import { useTranslation } from "react-i18next";
 import {
   Box,
   Typography,
@@ -75,7 +75,7 @@ export default function UserJourneyPage(): JSX.Element {
   const [data, setData] = useState<BackendResponse | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-
+const { t } = useTranslation();
   const API_BASE = (import.meta.env.VITE_API_URL as string) || "http://localhost:4000";
 
   useEffect(() => {
@@ -247,7 +247,7 @@ export default function UserJourneyPage(): JSX.Element {
       <Stack direction="row" justifyContent="space-between" alignItems="center" mb={2}>
         <Box>
           <Typography variant="h4" fontWeight={700}>
-            User Journey — {data?.user?.name ?? id}
+            {t("userJourneyTitle")} — {data?.user?.name ?? id}
           </Typography>
           <Typography variant="body2" color="text.secondary">
             {data?.user?.email ?? ""}
@@ -256,7 +256,8 @@ export default function UserJourneyPage(): JSX.Element {
 
         <Stack direction="row" spacing={1}>
           <Button variant="outlined" onClick={() => navigate("/app/dashboard")}>
-            Back to Dashboard
+         {t("backToDashboard")}
+
           </Button>
         </Stack>
       </Stack>
@@ -276,11 +277,11 @@ export default function UserJourneyPage(): JSX.Element {
         </Box>
       ) : error ? (
         <Box p={3}>
-          <Typography color="error">Failed to load user journey: {error}</Typography>
+          <Typography color="error">  {t("loadingUserJourneyError")}: {error}</Typography>
         </Box>
       ) : !data ? (
         <Box p={3}>
-          <Typography>No data found for this user.</Typography>
+          <Typography>{t("noData")}</Typography>
         </Box>
       ) : (
         <>
@@ -289,7 +290,7 @@ export default function UserJourneyPage(): JSX.Element {
             <Card sx={{ flex: 1 }}>
               <CardContent>
                 <Typography variant="subtitle2" color="text.secondary">
-                  Pages Visited
+                 {t("pagesVisited")}
                 </Typography>
                 <Typography variant="h5" fontWeight={700}>
                   {data.metrics?.pagesVisited ?? 0}
@@ -300,7 +301,7 @@ export default function UserJourneyPage(): JSX.Element {
             <Card sx={{ flex: 1 }}>
               <CardContent>
                 <Typography variant="subtitle2" color="text.secondary">
-                  Purchases
+                  {t("purchases")}
                 </Typography>
                 <Typography variant="h5" fontWeight={700}>
                   {data.metrics?.purchaseCount ?? 0}
@@ -311,7 +312,7 @@ export default function UserJourneyPage(): JSX.Element {
             <Card sx={{ flex: 1 }}>
               <CardContent>
                 <Typography variant="subtitle2" color="text.secondary">
-                  Time Spent (min)
+                 {t("timeSpentMin")} 
                 </Typography>
                 <Typography variant="h5" fontWeight={700}>
                   {/* convert seconds to minutes (rounded) */}
@@ -323,7 +324,7 @@ export default function UserJourneyPage(): JSX.Element {
             <Card sx={{ flex: 1 }}>
               <CardContent>
                 <Typography variant="subtitle2" color="text.secondary">
-                  Sessions
+                  {t("sessions")}
                 </Typography>
                 <Typography variant="h5" fontWeight={700}>
                   {data.metrics?.sessionsCount ?? 0}
@@ -337,7 +338,7 @@ export default function UserJourneyPage(): JSX.Element {
             <Card sx={{ flex: 1 }}>
               <CardContent>
                 <Typography variant="h6" mb={1}>
-                  Event Trend
+                {t("eventTrend")}
                 </Typography>
                 <Box sx={{ height: 320 }}>
                   <Line data={chartData} options={chartOptions} />
@@ -348,20 +349,20 @@ export default function UserJourneyPage(): JSX.Element {
             <Card sx={{ flex: 1 }}>
               <CardContent>
                 <Typography variant="h6" mb={1}>
-                  Sessions
+                     {t("sessions")}
                 </Typography>
 
                 {sessions.length === 0 ? (
-                  <Typography color="text.secondary">No sessions found in this range.</Typography>
+                  <Typography color="text.secondary">{t("noSessions")}</Typography>
                 ) : (
                   <TableContainer component={Paper} sx={{ maxHeight: 300 }}>
                     <Table stickyHeader size="small">
                       <TableHead>
                         <TableRow>
-                          <TableCell>Session Start</TableCell>
-                          <TableCell align="right">Pages</TableCell>
-                          <TableCell align="right">Purchases</TableCell>
-                          <TableCell align="right">Time (mm:ss)</TableCell>
+                          <TableCell>{t("sessionStart")}t</TableCell>
+                          <TableCell align="right">{t("pages")}</TableCell>
+                          <TableCell align="right">{t("purchases")}</TableCell>
+                          <TableCell align="right">{t("timeMmSs")}</TableCell>
                         </TableRow>
                       </TableHead>
                       <TableBody>
@@ -389,21 +390,21 @@ export default function UserJourneyPage(): JSX.Element {
           <Card>
             <CardContent>
               <Typography variant="h6" mb={1}>
-                Event Details
+                {t("eventDetails")}
               </Typography>
 
               {flattenedEvents.length === 0 ? (
-                <Typography color="text.secondary">No events available for the selected range.</Typography>
+                <Typography color="text.secondary">{t("noEvents")}</Typography>
               ) : (
                 <TableContainer component={Paper} sx={{ maxHeight: 420 }}>
                   <Table stickyHeader size="small">
                     <TableHead>
                       <TableRow>
-                        <TableCell>Session Start</TableCell>
-                        <TableCell>Event</TableCell>
-                        <TableCell>Page</TableCell>
-                        <TableCell>Time</TableCell>
-                        <TableCell align="right">Duration (sec)</TableCell>
+                        <TableCell>{t("sessionStart")}</TableCell>
+                        <TableCell>{t("event")}</TableCell>
+                        <TableCell>{t("page")}</TableCell>
+                        <TableCell>{t("time")}</TableCell>
+                        <TableCell align="right">{t("durationSec")}</TableCell>
                       </TableRow>
                     </TableHead>
                     <TableBody>

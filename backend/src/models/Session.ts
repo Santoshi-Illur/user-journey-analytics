@@ -1,4 +1,5 @@
 // src/models/Session.ts
+import { string } from "joi";
 import mongoose, { Schema, Document } from "mongoose";
 
 export interface ISession extends Document {
@@ -8,6 +9,7 @@ export interface ISession extends Document {
   sessionEnd?: Date;
   eventCount?: number;
   createdAt: Date;
+  
 }
 
 const SessionSchema = new Schema<ISession>({
@@ -16,7 +18,8 @@ const SessionSchema = new Schema<ISession>({
   sessionStart: { type: Date, required: true, index: true },
   sessionEnd: { type: Date },
   eventCount: { type: Number, default: 0 },
-  createdAt: { type: Date, default: () => new Date() },
+  createdAt: { type: Date, default: () => new Date() }
+  
 });
 
 SessionSchema.index({ userId: 1, sessionStart: -1 });

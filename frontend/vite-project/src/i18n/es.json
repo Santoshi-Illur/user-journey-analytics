@@ -1,0 +1,92 @@
+{
+  "appTitle": "Analítica del Recorrido del Usuario",
+  "dashboardTitle": "Analítica del Recorrido del Usuario",
+  "dashboardSubtitle": "Últimos 30 días por defecto — usa filtros para refinar los resultados.",
+
+  "viewFunnel": "Ver Embudo",
+  "refresh": "Actualizar",
+  "clear": "Limpiar",
+
+  "search": "Buscar",
+  "searchPlaceholder": "Buscar nombre o correo",
+
+  "device": "Dispositivo",
+  "country": "País",
+  "event": "Evento",
+  "all": "Todos",
+
+  "totalEvents": "Eventos Totales",
+  "purchases": "Compras",
+  "timeSpentSec": "Tiempo Invertido (seg)",
+
+  "user": "Usuario",
+  "pages": "Páginas",
+  "timeSec": "Tiempo (seg)",
+  "viewJourney": "Ver Recorrido",
+
+  "mobile": "Móvil",
+  "desktop": "Escritorio",
+  "tablet": "Tableta",
+
+  
+  "india": "India",
+  "usa": "EE. UU.",
+  "canada": "Canadá",
+  "uk": "Reino Unido",
+  "germany": "Alemania",
+
+   "pageVisit": "Visita de Página",
+  "purchase": "Compra",
+  "addToCart": "Añadir al Carrito",
+  "searchEvent": "Búsqueda",
+  "checkout": "Pago",
+
+   "startDate": "Fecha de inicio",
+  "endDate": "Fecha de fin",
+  "rowsPerPage": "Filas por página",
+
+    "userJourneyTitle": "Recorrido del Usuario",
+  "backToDashboard": "Volver al Panel",
+
+  "pagesVisited": "Páginas Visitadas",
+  "sessions": "Sesiones",
+  "eventTrend": "Tendencia de Eventos",
+
+  "noSessions": "No se encontraron sesiones en este rango.",
+  "eventDetails": "Detalles del Evento",
+  "noEvents": "No hay eventos disponibles para el rango seleccionado.",
+
+  "sessionStart": "Inicio de Sesión",
+ 
+  "page": "Página",
+  "time": "Hora",
+  "durationSec": "Duración (seg)",
+
+  
+  "timeMmSs": "Tiempo (mm:ss)",
+
+  "loadingUserJourneyError": "Error al cargar el recorrido del usuario",
+  "timeSpentMin": "Tiempo Invertido (min)",
+    "funnelAnalysis": "Análisis de Embudo",
+ 
+
+  "loadingFunnel": "Cargando datos del embudo…",
+  
+  "loginTitle": "Inicio de Sesión - Analítica del Recorrido del Usuario",
+  "email": "Correo electrónico",
+  "password": "Contraseña",
+  "login": "Iniciar sesión",
+
+  "emailPasswordRequired": "El correo electrónico y la contraseña son obligatorios.",
+  "invalidLogin": "Intento de inicio de sesión inválido.",
+  "loginFailed": "Error al iniciar sesión. Inténtalo de nuevo.",
+  "funnel": {
+    "sessionStart": "Inicio de Sesión",
+    "pageVisit": "Visita de Página",
+    "productView": "Vista de Producto",
+    "addToCart": "Añadir al Carrito",
+    "checkout": "Pago",
+    "purchase": "Compra"
+  }
+
+}

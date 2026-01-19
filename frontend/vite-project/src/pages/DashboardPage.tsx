@@ -27,7 +27,8 @@ import RefreshIcon from "@mui/icons-material/Refresh";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import dayjs from "dayjs";
-
+import "dayjs/locale/es";
+import { useTranslation } from "react-i18next";
 import { Line } from "react-chartjs-2";
 import type { ChartOptions } from "chart.js";
 import {
@@ -44,6 +45,7 @@ import {
 import DateRangeSelector from "../components/DateRangeSelector";
 import type { DateRange } from "../components/DateRangeSelector";
 import useDebounce from "../hooks/useDebounce";
+import { red } from "@mui/material/colors";
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip, Legend, Filler);
 
@@ -61,21 +63,25 @@ type ApiUser = {
 
 type ApiResponse = {
   users?: ApiUser[];
-  trendData?: { date: string; pageVisits?: number; purchases?: number; timeSpent?: number }[];
+  trendData?: { date: string; pageVisits?: number; purchases?: number; timeSpent?: number }[]; //tiles data
   pagination?: { page?: number; limit?: number; totalUsers?: number };
   metrics?: { totalEvents?: number; purchases?: number; totalTimeSec?: number; uniqueUsers?: number };
 };
 
 export default function DashboardPage(): JSX.Element {
   const navigate = useNavigate();
-
+const { t, i18n } = useTranslation();
   // Filters
   const [search, setSearch] = useState<string>("");
   const debouncedSearch = useDebounce(search, 350);
 
-  const [device, setDevice] = useState<string>("");
-  const [country, setCountry] = useState<string>("");
-  const [eventType, setEventType] = useState<string>("");
+  const [device, setDevice] = useState<string>(""); // filter
+  const [country, setCountry] = useState<string>(""); // filter
+  const [eventType, setEventType] = useState<string>(""); // filter
+
+
+// Map language → locale
+const locale = i18n.language === "es" ? "es-ES" : "en-US";
 
   const [range, setRange] = useState<DateRange>({
     start: dayjs().subtract(30, "day"),
@@ -151,6 +157,8 @@ export default function DashboardPage(): JSX.Element {
     setPage(0);
   };
 
+
+
   // Chart configs (each with its own color)
   const makeChartData = (field: "pageVisits" | "purchases" | "timeSpent", colorHex: string) => {
     const labels = trendData?.map((t) => t.date) ?? [];
@@ -208,7 +216,13 @@ export default function DashboardPage(): JSX.Element {
             // Use index lookup on labels — safer across scale types
             const labels = (this as any)?.chart?.data?.labels;
             const raw = labels?.[index] ?? labels?.[Number(tickValue)];
-            return raw ? dayjs(String(raw)).format("MMM D") : "";
+            // return raw ? dayjs(String(raw)).format("MMM D") : "";
+            return raw
+  ? dayjs(String(raw))
+      .locale(i18n.language)
+      .format("MMM D")
+  : "";
+
           },
           autoSkip: true,
           maxRotation: 0,
@@ -244,11 +258,12 @@ export default function DashboardPage(): JSX.Element {
       <Stack direction="row" justifyContent="space-between" alignItems="center" mb={3}>
         <Box>
           <Typography variant="h4" fontWeight={700} color="#0b4f8a">
-            User Journey Analytics
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            Last 30 days by default — use filters to refine results.
-          </Typography>
+  {t("dashboardTitle")}
+</Typography>
+<Typography variant="body2" color="text.secondary">
+  {t("dashboardSubtitle")}
+</Typography>
+
         </Box>
 
         <Stack direction="row" spacing={1} alignItems="center">
@@ -257,7 +272,7 @@ export default function DashboardPage(): JSX.Element {
       color="primary"
       onClick={() => navigate("/app/funnel")}
     >
-      View Funnel
+       {t("viewFunnel")}
     </Button>
           <IconButton
             title="Refresh"
@@ -270,61 +285,17 @@ export default function DashboardPage(): JSX.Element {
           </IconButton>
 
           <Button variant="contained" onClick={handleClear} color="primary">
-            Clear
+            {t("clear")}
           </Button>
         </Stack>
       </Stack>
 
-      {/* KPI + mini charts */}
-      <Stack direction={{ xs: "column", md: "row" }} spacing={2} mb={3}>
-        <Card sx={{ flex: 1, borderRadius: 2, boxShadow: 3 }}>
-          <CardContent>
-            <Typography variant="subtitle2" color="text.secondary">
-              Total Events
-            </Typography>
-            <Typography variant="h5" fontWeight={700}>
-              {metrics?.totalEvents ?? "-"}
-            </Typography>
-            <Box sx={{ height: 120, mt: 1 }}>
-              <Line data={pageVisitsData} options={baseChartOptions} />
-            </Box>
-          </CardContent>
-        </Card>
 
-        <Card sx={{ flex: 1, borderRadius: 2, boxShadow: 3 }}>
-          <CardContent>
-            <Typography variant="subtitle2" color="text.secondary">
-              Purchases
-            </Typography>
-            <Typography variant="h5" fontWeight={700}>
-              {metrics?.purchases ?? "-"}
-            </Typography>
-            <Box sx={{ height: 120, mt: 1 }}>
-              <Line data={purchasesData} options={baseChartOptions} />
-            </Box>
-          </CardContent>
-        </Card>
-
-        <Card sx={{ flex: 1, borderRadius: 2, boxShadow: 3 }}>
-          <CardContent>
-            <Typography variant="subtitle2" color="text.secondary">
-              Time Spent (sec)
-            </Typography>
-            <Typography variant="h5" fontWeight={700}>
-              {metrics?.totalTimeSec ?? "-"}
-            </Typography>
-            <Box sx={{ height: 120, mt: 1 }}>
-              <Line data={timeSpentData} options={baseChartOptions} />
-            </Box>
-          </CardContent>
-        </Card>
-      </Stack>
-
-      {/* Filters row */}
+ {/* Filters row */}
       <Stack direction={{ xs: "column", md: "row" }} spacing={2} mb={2} alignItems="center">
         <TextField
-          placeholder="Search name or email"
-          label="Search"
+          placeholder={t("searchPlaceholder")}
+          label={t("search")}
           size="small"
           value={search}
           onChange={(e) => {
@@ -335,57 +306,58 @@ export default function DashboardPage(): JSX.Element {
         />
 
         <FormControl size="small" sx={{ minWidth: 140 }}>
-          <InputLabel>Device</InputLabel>
+          <InputLabel>{t("device")}</InputLabel>
           <Select
             value={device}
-            label="Device"
+            label={t("device")}
             onChange={(e) => {
               setDevice(e.target.value);
               setPage(0);
             }}
           >
-            <MenuItem value="">All</MenuItem>
-            <MenuItem value="Mobile">Mobile</MenuItem>
-            <MenuItem value="Desktop">Desktop</MenuItem>
-            <MenuItem value="Tablet">Tablet</MenuItem>
+            <MenuItem value="">{t("all")}</MenuItem>
+        <MenuItem value="Mobile">{t("mobile")}</MenuItem>
+    <MenuItem value="Desktop">{t("desktop")}</MenuItem>
+    <MenuItem value="Tablet">{t("tablet")}</MenuItem>
           </Select>
         </FormControl>
 
         <FormControl size="small" sx={{ minWidth: 140 }}>
-          <InputLabel>Country</InputLabel>
+          <InputLabel>{t("country")}</InputLabel>
           <Select
             value={country}
-            label="Country"
+            label={t("country")}
             onChange={(e) => {
               setCountry(e.target.value);
               setPage(0);
             }}
           >
-            <MenuItem value="">All</MenuItem>
-            <MenuItem value="India">India</MenuItem>
-            <MenuItem value="USA">USA</MenuItem>
-            <MenuItem value="Canada">Canada</MenuItem>
-            <MenuItem value="UK">UK</MenuItem>
-            <MenuItem value="Germany">Germany</MenuItem>
+            <MenuItem value="">{t("all")}</MenuItem>
+            <MenuItem value="India">{t("india")}</MenuItem>
+<MenuItem value="USA">{t("usa")}</MenuItem>
+<MenuItem value="Canada">{t("canada")}</MenuItem>
+<MenuItem value="UK">{t("uk")}</MenuItem>
+<MenuItem value="Germany">{t("germany")}</MenuItem>
+
           </Select>
         </FormControl>
 
         <FormControl size="small" sx={{ minWidth: 160 }}>
-          <InputLabel>Event</InputLabel>
+          <InputLabel>{t("event")}</InputLabel>
           <Select
             value={eventType}
-            label="Event"
+            label={t("event")}
             onChange={(e) => {
               setEventType(e.target.value);
               setPage(0);
             }}
           >
-            <MenuItem value="">All</MenuItem>
-            <MenuItem value="page_visit">Page Visit</MenuItem>
-            <MenuItem value="purchase">Purchase</MenuItem>
-            <MenuItem value="add_to_cart">Add to Cart</MenuItem>
-            <MenuItem value="search">Search</MenuItem>
-            <MenuItem value="checkout">Checkout</MenuItem>
+            <MenuItem value="">{t("all")}</MenuItem>
+             <MenuItem value="page_visit">{t("pageVisit")}</MenuItem>
+    <MenuItem value="purchase">{t("purchase")}</MenuItem>
+    <MenuItem value="add_to_cart">{t("addToCart")}</MenuItem>
+    <MenuItem value="search">{t("searchEvent")}</MenuItem>
+    <MenuItem value="checkout">{t("checkout")}</MenuItem>
           </Select>
         </FormControl>
       </Stack>
@@ -400,6 +372,53 @@ export default function DashboardPage(): JSX.Element {
           }}
         />
       </Box>
+      
+      {/* KPI + mini charts */}
+      <Stack direction={{ xs: "column", md: "row" }} spacing={2} mb={3}>
+        <Card sx={{ flex: 1, borderRadius: 2, boxShadow: 3 }}>
+          <CardContent>
+            <Typography variant="subtitle2" color="text.secondary">
+               {t("totalEvents")}
+            </Typography>
+            <Typography variant="h5" fontWeight={700}>
+              {metrics?.totalEvents ?? "-"}
+            </Typography>
+            <Box sx={{ height: 120, mt: 1 }}>
+              <Line data={pageVisitsData} options={baseChartOptions} />
+            </Box>
+          </CardContent>
+        </Card>
+
+        <Card sx={{ flex: 1, borderRadius: 2, boxShadow: 3 }}>
+          <CardContent>
+            <Typography variant="subtitle2" color="text.secondary">
+               {t("purchases")}
+            </Typography>
+            <Typography variant="h5" fontWeight={700}>
+              {metrics?.purchases ?? "-"}
+            </Typography>
+            <Box sx={{ height: 120, mt: 1 }}>
+              <Line data={purchasesData} options={baseChartOptions} />
+            </Box>
+          </CardContent>
+        </Card>
+
+        <Card sx={{ flex: 1, borderRadius: 2, boxShadow: 3 }}>
+          <CardContent>
+            <Typography variant="subtitle2" color="text.secondary">
+              {t("timeSpentSec")}
+            </Typography>
+            <Typography variant="h5" fontWeight={700}>
+              {metrics?.totalTimeSec ?? "-"}
+            </Typography>
+            <Box sx={{ height: 120, mt: 1 }}>
+              <Line data={timeSpentData} options={baseChartOptions} />
+            </Box>
+          </CardContent>
+        </Card>
+      </Stack>
+
+     
 
       {/* Users table */}
       <Card>
@@ -410,16 +429,16 @@ export default function DashboardPage(): JSX.Element {
             </Box>
           ) : (
             <>
-              <TableContainer component={Paper} sx={{ maxHeight: 520 }}>
+              <TableContainer component={Paper} sx={{ maxHeight: 570 }}>
                 <Table stickyHeader size="small">
                   <TableHead>
                     <TableRow>
-                      <TableCell>User</TableCell>
-                      <TableCell>Device</TableCell>
-                      <TableCell>Country</TableCell>
-                      <TableCell align="right">Pages</TableCell>
-                      <TableCell align="right">Purchases</TableCell>
-                      <TableCell align="right">Time (sec)</TableCell>
+                      <TableCell>{t("user")}</TableCell>
+                      <TableCell>{t("device")}</TableCell>
+                      <TableCell>{t("country")}</TableCell>
+                      <TableCell align="right">{t("pages")}</TableCell>
+                      <TableCell align="right">{t("purchases")}</TableCell>
+                      <TableCell align="right">{t("timeSec")}</TableCell>
                       <TableCell />
                     </TableRow>
                   </TableHead>
@@ -439,7 +458,7 @@ export default function DashboardPage(): JSX.Element {
                         <TableCell align="right">{u.timeSpent ?? 0}</TableCell>
                         <TableCell>
                           <Button size="small" variant="contained" onClick={() => navigate(`/app/user/${u.userId}`)}>
-                            View Journey
+                          {t("viewJourney")}
                           </Button>
                         </TableCell>
                       </TableRow>
@@ -456,6 +475,7 @@ export default function DashboardPage(): JSX.Element {
                 onPageChange={handleChangePage}
                 onRowsPerPageChange={handleChangeRowsPerPage}
                 rowsPerPageOptions={[10, 20, 50]}
+                labelRowsPerPage={t("rowsPerPage")}
               />
             </>
           )}

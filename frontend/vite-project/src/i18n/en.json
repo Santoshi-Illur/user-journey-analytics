@@ -1,0 +1,97 @@
+
+{
+  "appTitle": "User Journey Analytics",
+  "dashboardTitle": "User Journey Analytics",
+  "dashboardSubtitle": "Last 30 days by default — use filters to refine results.",
+
+  "viewFunnel": "View Funnel",
+  "refresh": "Refresh",
+  "clear": "Clear",
+
+  "search": "Search",
+  "searchPlaceholder": "Search name or email",
+
+  "device": "Device",
+  "country": "Country",
+  "event": "Event",
+  "all": "All",
+
+  "totalEvents": "Total Events",
+  "purchases": "Purchases",
+  "timeSpentSec": "Time Spent (sec)",
+
+  "user": "User",
+  "pages": "Pages",
+  "timeSec": "Time (sec)",
+  "viewJourney": "View Journey",
+
+   "mobile": "Mobile",
+  "desktop": "Desktop",
+  "tablet": "Tablet",
+
+    "india": "India",
+  "usa": "USA",
+  "canada": "Canada",
+  "uk": "UK",
+  "germany": "Germany",
+
+   "pageVisit": "Page Visit",
+  "purchase": "Purchase",
+  "addToCart": "Add to Cart",
+  "searchEvent": "Search",
+  "checkout": "Checkout",
+
+   "startDate": "Start Date",
+  "endDate": "End Date",
+  "rowsPerPage": "Rows per page",
+
+    "userJourneyTitle": "User Journey",
+  "backToDashboard": "Back to Dashboard",
+
+  "pagesVisited": "Pages Visited",
+  "sessions": "Sessions",
+  "eventTrend": "Event Trend",
+
+  "noSessions": "No sessions found in this range.",
+  "eventDetails": "Event Details",
+  "noEvents": "No events available for the selected range.",
+
+  "sessionStart": "Session Start",
+
+  "page": "Page",
+  "time": "Time",
+  "durationSec": "Duration (sec)",
+
+ 
+  "timeMmSs": "Time (mm:ss)",
+
+  "loadingUserJourneyError": "Failed to load user journey",
+  "timeSpentMin": "Time Spent (min)",
+   "funnelAnalysis": "Funnel Analysis",
+
+
+  "loadingFunnel": "Loading funnel data…",
+  
+  "loginTitle": "User Journey Analytics Login",
+  "email": "Email",
+  "password": "Password",
+  "login": "Login",
+
+  "emailPasswordRequired": "Email and password are required.",
+  "invalidLogin": "Invalid login attempt.",
+  "loginFailed": "Login failed. Try again.",
+   "funnel": {
+    "sessionStart": "Session Start",
+    "pageVisit": "Page Visit",
+    "productView": "Product View",
+    "addToCart": "Add to Cart",
+    "checkout": "Checkout",
+    "purchase": "Purchase"
+  }
+  
+
+
+  
+
+}
+
