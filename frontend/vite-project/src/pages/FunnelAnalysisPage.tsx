@@ -59,7 +59,8 @@ export default function FunnelAnalysisPage() {
   /* -------- Data -------- */
   const [funnel, setFunnel] = useState<FunnelStage[]>([]);
   const [loading, setLoading] = useState(true);
-const { t } = useTranslation();
+  const { t } = useTranslation();
+  const API_BASE = (import.meta.env.VITE_API_URL as string) || "http://localhost:4000";
 
   /* -------- API Call -------- */
   useEffect(() => {
@@ -67,7 +68,7 @@ const { t } = useTranslation();
       try {
         setLoading(true);
         const res = await axios.get<FunnelResponse>(
-          "http://localhost:4000/api/funnel",
+          `${API_BASE}/funnel`,
           {
             params: {
               start: range.start?.toISOString(),
